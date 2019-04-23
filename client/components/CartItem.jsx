@@ -1,7 +1,3 @@
-import React 'React'
-
-import beerData from '../../data/beers'
-
 import React from 'react'
 
 import beerData from '../../data/beers'
@@ -18,7 +14,7 @@ const CartItem = (props) => {
           onChange={(e) => props.update(props.item.id, e.target.value)} />
       </td>
       <td><button onClick={() => props.deleteFromCart(props.item.id)}>
-        <span className='fa fa-trash fa-2x' />
+        <span className='rubbish' />
       </button></td>
     </tr>
   )
