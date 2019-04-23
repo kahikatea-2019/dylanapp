@@ -1,5 +1,6 @@
-export const actionCreatorName = () => {
-  return {
-    type: 'ACTION_TYPE'
-  }
-}
+// export function getBeer (beer) {
+//   return {
+//     type: 'GET_BEER',
+//     beer
+//   }
+// }
