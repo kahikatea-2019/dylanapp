@@ -1,7 +1,7 @@
 import React from 'react'
 
 const BeerListItem = (props) => {
-  const { name, brewery, country, style, abv } = props.beer
+  const { name, brewery, country, style, abv, id } = props.beer
   return (
     <div className="beer">
       <p className="name">{name}</p>
@@ -9,7 +9,9 @@ const BeerListItem = (props) => {
       <p>
         <span className="country">{country}</span>
         <span className="abv">{abv}</span>
-        <a href="/designs/cart.html" className="cart-link">Add to cart</a>
+        <a href='#'
+          className='cart-link'
+          onClick={() => props.addToCart(id)}>Add to cart</a>
       </p>
     </div>
 
