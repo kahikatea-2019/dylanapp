@@ -11,7 +11,7 @@ const BeerListItem = (props) => {
         <span className="abv">{abv}</span>
         <a href='#'
           className='cart-link'
-          onClick={() => props.addToCart(id)}>Add to cart</a>
+          onClick={() => props.addToCart(id, name)}>Add to cart</a>
       </p>
     </div>
 

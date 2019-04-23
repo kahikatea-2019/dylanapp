@@ -19,8 +19,8 @@ const BeerList = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (id) => {
-      dispatch(addToCart(id))
+    addToCart: (id, name) => {
+      dispatch(addToCart(id, name))
       dispatch(navigate('cart'))
     }
   }

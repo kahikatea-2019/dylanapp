@@ -1,4 +1,4 @@
-const navigateReducer = (state = true, action) => {
+const navigateReducer = (state = 'listing', action) => {
   switch (action.type) {
     case 'NAVIGATE':
       return action.target
