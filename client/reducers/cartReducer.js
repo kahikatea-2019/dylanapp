@@ -13,7 +13,7 @@ const cartReducer = (state = initialCartState, action) => {
         }]
     case 'REMOVE_FROM_CART':
       return state.filter(cart =>
-        cart !== action.id
+        cart.id !== action.id
       )
 
     case 'UPDATE_QUANTITIES':
