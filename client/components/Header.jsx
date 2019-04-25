@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-mport React from 'react'
-
-const Header = () => {
-  return (
-    <h1>
-      <span className='beer' />
-      {' '}Sweet As Beers{' '}
-      <span className='beer' />
-    </h1>
-  )
-}
-
-export default Header
-=======
 import React from 'react'
 
 export default function Header () {
@@ -22,4 +7,3 @@ export default function Header () {
     </div>
   )
 }
->>>>>>> dcdf516ae55cd27cd8b7277a7fd3a0dce1e2e20e

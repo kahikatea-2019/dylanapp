@@ -1,9 +1,22 @@
 import React from 'react'
 import CartListItem from './CartListItem'
-import { removeFromCart } from '../actions/index'
+import { removeFromCart, updateQuantities, navigate } from '../actions/index'
 import { connect } from 'react-redux'
 
+
 class CartList extends React.Component {
+  state={
+    cart: this.props.cart
+  }
+  changeHandler = (id, quantity) => {
+    const { cart } = this.state
+    this.setState({
+      cart: cart.map(beer => {
+        if (beer.id === id) beer.quantity = Number(quantity)
+        return beer
+      })
+    })
+  }
   render () {
     return (
       <div>
@@ -21,10 +34,21 @@ class CartList extends React.Component {
                 <CartListItem
                   key ={id}
                   beer={beer}
-                  delete={this.props.removeFromCart}/>
+                  delete={this.props.removeFromCart}
+                  update={this.changeHandler}/>
               )}
             </tbody>
           </table>
+
+          <p className="actions">
+            <a href='#'
+              onClick={(e) => {
+                e.preventDefault()
+                this.props.keepShopping()
+              }}>Keep Shopping</a>
+            <button onClick={()=> this.props.updateQuantities(this.state.cart)}>Update</button>
+            <button className="button-primary">Checkout</button>
+          </p>
         </div>
       </div>
     )
@@ -38,7 +62,9 @@ function mapStateToProps (state) {
 }
 function mapStateToDispatch (dispatch) {
   return {
-    removeFromCart: (id) => dispatch(removeFromCart(id))
+    keepShopping: () => dispatch(navigate('listing')),
+    removeFromCart: (id) => dispatch(removeFromCart(id)),
+    updateQuantities: (cart) => dispatch(updateQuantities(cart))
   }
 }
 export default connect(mapStateToProps, mapStateToDispatch)(CartList)

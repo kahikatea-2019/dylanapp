@@ -8,7 +8,8 @@ const cartReducer = (state = initialCartState, action) => {
         {
 
           id: action.id,
-          name: action.name
+          name: action.name,
+          quantity: 1
 
         }]
     case 'REMOVE_FROM_CART':
