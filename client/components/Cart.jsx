@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react'
 import { connect } from 'react-redux'
 import CartItem from './CartItem'
@@ -58,10 +59,29 @@ class Cart extends React.Component {
           <button onClick={() => this.props.updateCart(this.state.cart)}>Update</button>
           <button className='button-primary'>Checkout</button>
         </p>
+=======
+import React, { Component } from 'react'
+import CartList from './CartList'
+import { connect } from 'react-redux'
+import { navigate } from '../actions/index'
+
+class Cart extends Component {
+  render () {
+    return (
+      <div>
+        <p className="welcome">Thirsty? Sweet! You are one step closer to a quenching.</p>
+        <CartList cart ={this.props.cart}/>
+        <a href='#'
+          onClick={(e) => {
+            e.preventDefault()
+            this.props.keepShopping()
+          }}>Keep Shopping</a>
+>>>>>>> dcdf516ae55cd27cd8b7277a7fd3a0dce1e2e20e
       </div>
     )
   }
 }
+<<<<<<< HEAD
 
 const mapStateToProps = (state) => {
   return {
@@ -81,3 +101,16 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Cart)
+=======
+function mapStateToProps (state) {
+  return {
+    cart: state.cartReducer
+  }
+}
+function mapStateToDispatch (dispatch) {
+  return {
+    keepShopping: () => dispatch(navigate('listing'))
+  }
+}
+export default connect(mapStateToProps, mapStateToDispatch)(Cart)
+>>>>>>> dcdf516ae55cd27cd8b7277a7fd3a0dce1e2e20e

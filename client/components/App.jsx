@@ -1,10 +1,24 @@
 import React from 'react'
 
+import Header from './Header'
+import Listing from './Listing'
+import Cart from './Cart'
+
+import { connect } from 'react-redux'
+
 // This might need to be turned into a stateful (class-based) component
-const App = () => (
+const App = (props) => (
   <div className='app'>
-    Ready to rock and roll
+    <Header/>
+    {props.navigate === 'listing' ? <Listing /> : <Cart />}
+
   </div>
 )
 
-export default App
+const mapStateToProps = (state) => {
+  return {
+    navigate: state.navigateReducer
+  }
+}
+
+export default connect(mapStateToProps)(App)
