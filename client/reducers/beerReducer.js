@@ -1,10 +1,10 @@
-import beersData from '../../data/beers'
-const initialBeerState = beersData.beers
+import productData from '../../data/products'
+const initialProductState = productData.products
 
-const beerReducer = (state = initialBeerState, action) => {
+const productReducer = (state = initialProductState, action) => {
   switch (action.type) {
     default:
       return state
   }
 }
-export default beerReducer
+export default productReducer

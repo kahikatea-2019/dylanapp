@@ -1,7 +1,7 @@
 import React from 'react'
 
-const BeerListItem = (props) => {
-  const { name, brewery, country, style, abv, id } = props.beer
+const ProductListItem = (props) => {
+  const { name, brewery, country, style, abv, id } = props.product
   return (
     <div className="beer">
       <p className="name">{name}</p>
@@ -17,4 +17,4 @@ const BeerListItem = (props) => {
 
   )
 }
-export default BeerListItem
+export default ProductListItem

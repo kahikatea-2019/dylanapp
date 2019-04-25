@@ -1,15 +1,15 @@
 import React from 'react'
 
-import BeerListItem from './BeerListItem'
+import ProductListItem from './ProductListItem'
 import { navigate, addToCart } from '../actions/index'
 import { connect } from 'react-redux'
 
-const BeerList = (props) => {
+const ProductList = (props) => {
   return (
     <div>
       <ul>
-        {props.beers.map(beer =>
-          <BeerListItem key={beer.id} beer={beer} addToCart={props.addToCart}/>
+        {props.products.map(product =>
+          <ProductListItem key={product.id} product={product} addToCart={props.addToCart}/>
 
         )}
       </ul>
@@ -28,4 +28,4 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(null,
   mapDispatchToProps
-)(BeerList)
+)(ProductList)
