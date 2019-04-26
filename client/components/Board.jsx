@@ -1,21 +1,21 @@
 import React, { Component } from 'react'
-import CartList from './CartList'
+import BoardList from './BoardList'
 import { connect } from 'react-redux'
 
-class Cart extends Component {
+class Board extends Component {
   render () {
     return (
       <div>
         <p className="welcome"></p>
-        <CartList cart ={this.props.cart}/>
+        <BoardList board ={this.props.board}/>
       </div>
     )
   }
 }
 function mapStateToProps (state) {
   return {
-    cart: state.cartReducer
+    board: state.boardReducer
   }
 }
 
-export default connect(mapStateToProps)(Cart)
+export default connect(mapStateToProps)(Board)

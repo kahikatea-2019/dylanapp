@@ -4,22 +4,22 @@ import request from 'superagent'
 export const navigate = target => {
   return {
     type: 'NAVIGATE',
-    target // 'listing' or 'cart'
+    target //
   }
 }
 // Add to cart
 // todo: can we remove name?  Or, fix dispatch in BeerList..
-export const addToCart = (id, name) => {
+export const addToBoard = (id, name) => {
   return {
-    type: 'ADD_TO_CART',
+    type: 'ADD_TO_BOARD',
     id,
     name
   }
 }
 // Delete from cart
-export const removeFromCart = id => {
+export const removeFromBoard = id => {
   return {
-    type: 'REMOVE_FROM_CART',
+    type: 'REMOVE_FROM_BOARD',
     id
   }
 }
@@ -41,7 +41,7 @@ export const requestData = (posts) => {
 export function fetchData () {
   return (dispatch) => {
     return request
-      .get('https://api.unsplash.com/photos/random/?client_id=9246c1c6029872e3c5ab6d3d689face627caa741e633c82c7d59ddaad33d70bc')
+      .get('https://api.unsplash.com/photos/random/?client_id=')
       .then(res => {
         dispatch(requestData(res.body))
       })

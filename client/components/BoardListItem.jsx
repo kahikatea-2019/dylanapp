@@ -1,7 +1,7 @@
 import React from 'react'
 
-const CartListItem = (props) => {
-  const { name, id } = props.beer
+const BoardListItem = (props) => {
+  const { name, id } = props.photo
   return (
     <>
     <tr>
@@ -14,4 +14,4 @@ const CartListItem = (props) => {
     </>
   )
 }
-export default CartListItem
+export default BoardListItem

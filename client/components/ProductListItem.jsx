@@ -7,7 +7,7 @@ const ProductListItem = (props) => {
       <p><img src={url}/></p>
       <a href='#'
         className='cart-link'
-        onClick={() => props.addToCart(id, name)}>Add to cart</a>
+        onClick={() => props.addToBoard(id, name)}>Add to cart</a>
     </div>
 
   )

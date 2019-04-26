@@ -2,7 +2,7 @@ import React from 'react'
 
 import Header from './Header'
 import Listing from './Listing'
-import Cart from './Cart'
+import Board from './Board'
 
 import { connect } from 'react-redux'
 
@@ -10,7 +10,7 @@ import { connect } from 'react-redux'
 const App = (props) => (
   <div className='app'>
     <Header/>
-    {props.navigate === 'listing' ? <Listing /> : <Cart />}
+    {props.navigate === 'listing' ? <Listing /> : <Board />}
 
   </div>
 )

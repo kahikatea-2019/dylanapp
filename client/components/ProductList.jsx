@@ -1,7 +1,7 @@
 import React from 'react'
 
 import ProductListItem from './ProductListItem'
-import { navigate, addToCart, fetchData } from '../actions/index'
+import { navigate, addToBoard, fetchData } from '../actions/index'
 import { connect } from 'react-redux'
 import request from 'superagent'
 import productReducer from '../reducers/productReducer'
@@ -12,7 +12,7 @@ class ProductList extends React.Component {
   }
   componentDidMount () {
     request
-      .get('https://api.unsplash.com/photos/random/?client_id=9246c1c6029872e3c5ab6d3d689face627caa741e633c82c7d59ddaad33d70bc')
+      .get('https://api.unsplash.com/photos/random/?client_id=')
       // .then(console.log)
       .then(res => {
         console.log(res.body)
@@ -30,7 +30,7 @@ class ProductList extends React.Component {
         <button onClick={() => this.props.fetchData()}>Random Photo</button>
         <button><a href='#'
         className='cart-link'
-        onClick={() => this.props.addToCart(this.state.id)}>Add to Board</a></button>
+        onClick={() => this.props.addToBoard(this.state.id)}>Add to Board</a></button>
 
       </div>
     )
@@ -44,8 +44,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (id) => {
-      dispatch(addToCart(id))
+    addToBoard: (id) => {
+      dispatch(addToBoard(id))
       dispatch(navigate('cart'))
     },
     fetchData: () => dispatch(fetchData())

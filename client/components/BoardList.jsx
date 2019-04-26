@@ -1,19 +1,19 @@
 import React from 'react'
-import CartListItem from './CartListItem'
-import { removeFromCart, updateQuantities, navigate } from '../actions/index'
+import BoardListItem from './BoardListItem'
+import { addToBoard, updateQuantities, navigate } from '../actions/index'
 import { connect } from 'react-redux'
 
 
-class CartList extends React.Component {
+class BoardList extends React.Component {
   state ={
-    cart: this.props.cart
+    board: this.props.board
   }
   changeHandler = (id, quantity) => {
-    const { cart } = this.state
+    const { board } = this.state
     this.setState({
-      cart: cart.map(beer => {
-        if (beer.id === id) beer.quantity = Number(quantity)
-        return beer
+      board: board.map(photo => {
+        if (photo.id === id) photo.quantity = Number(quantity)
+        return photo
       })
     })
   }
@@ -21,10 +21,10 @@ class CartList extends React.Component {
     return (
       <div>
         <div className='cart'>
-              {this.props.cart.map((beer, id) =>
-                <CartListItem
+              {this.props.board.map((photo, id) =>
+                <BoardListItem
                   key ={id}
-                  beer={beer}/>
+                  photo={photo}/>
               )}
           <p className="actions">
             <a href='#'
@@ -42,14 +42,14 @@ class CartList extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    cart: state.cartReducer
+    board: state.boardReducer
   }
 }
 function mapStateToDispatch (dispatch) {
   return {
     keepShopping: () => dispatch(navigate('listing')),
-    removeFromCart: (id) => dispatch(removeFromCart(id)),
-    updateQuantities: (cart) => dispatch(updateQuantities(cart))
+    addToBoard: (id) => dispatch(board(id)),
+    updateQuantities: (board) => dispatch(updateQuantities(board))
   }
 }
-export default connect(mapStateToProps, mapStateToDispatch)(CartList)
+export default connect(mapStateToProps, mapStateToDispatch)(BoardList)
