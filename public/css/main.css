@@ -35,27 +35,3 @@ h1 {
   font-style: italic;
 }
 
-.product .cart-link {
-  text-align: right;
-}
-
-.cart table {
-  width: 100%;
-}
-
-.cart .update-input {
-  width: 40px;
-  text-align: center;
-  margin-bottom: 0px; /* skeleton override */
-}
-
-.cart tbody button {
-  border: 0;
-  padding-top: 10px;
-}
-
-.cart .actions {
-  display: flex;
-  justify-content: space-between;
-}
-

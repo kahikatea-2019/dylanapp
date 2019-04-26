@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import CartList from './CartList'
 import { connect } from 'react-redux'
 
-
 class Cart extends Component {
   render () {
     return (

@@ -7,8 +7,8 @@ import request from 'superagent'
 import productReducer from '../reducers/productReducer'
 
 class ProductList extends React.Component {
-  state={
-    products: productReducer
+  state = {
+    products: this.props.state
   }
   componentDidMount () {
     request
@@ -16,9 +16,9 @@ class ProductList extends React.Component {
       // .then(console.log)
       .then(res => {
         console.log(res.body)
-        const { raw } = res.body.urls
         this.setState({
-          products: raw
+          products: res.body.urls.small,
+          id: res.body.id
         })
       })
   }
@@ -26,28 +26,32 @@ class ProductList extends React.Component {
   render () {
     return (
       <div>
-        <ul>
-          {/* {this.props.products.map(product =>
-            <ProductListItem key={product.id} product={product} addToCart={this.props.addToCart}/>
-          )} */}
           <img src={this.state.products}></img>
-        </ul>
         <button onClick={() => this.props.fetchData()}>Random Photo</button>
+        <button><a href='#'
+        className='cart-link'
+        onClick={() => this.props.addToCart(this.state.id)}>Add to Board</a></button>
+
       </div>
     )
+  }
+}
+const mapStateToProps = (state) => {
+  return {
+    state: state.productReducer
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (id, name) => {
-      dispatch(addToCart(id, name))
+    addToCart: (id) => {
+      dispatch(addToCart(id))
       dispatch(navigate('cart'))
     },
     fetchData: () => dispatch(fetchData())
   }
 }
 
-export default connect(null,
+export default connect(mapStateToProps,
   mapDispatchToProps
 )(ProductList)

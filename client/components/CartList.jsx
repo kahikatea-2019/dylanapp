@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 
 class CartList extends React.Component {
-  state={
+  state ={
     cart: this.props.cart
   }
   changeHandler = (id, quantity) => {
@@ -21,33 +21,18 @@ class CartList extends React.Component {
     return (
       <div>
         <div className='cart'>
-          <table>
-            <thead>
-              <tr>
-                <th>Beer</th>
-                <th>Quantity</th>
-                <th>Remove</th>
-              </tr>
-            </thead>
-            <tbody>
               {this.props.cart.map((beer, id) =>
                 <CartListItem
                   key ={id}
-                  beer={beer}
-                  delete={this.props.removeFromCart}
-                  update={this.changeHandler}/>
+                  beer={beer}/>
               )}
-            </tbody>
-          </table>
-
           <p className="actions">
             <a href='#'
               onClick={(e) => {
                 e.preventDefault()
                 this.props.keepShopping()
-              }}>Keep Shopping</a>
-            <button onClick={()=> this.props.updateQuantities(this.state.cart)}>Update</button>
-            <button className="button-primary">Checkout</button>
+              }}>Back To Photos</a>
+            <button className="button-primary">Save Board</button>
           </p>
         </div>
       </div>
