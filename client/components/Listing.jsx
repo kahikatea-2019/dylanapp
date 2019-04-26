@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 const Listing = (props) => {
   return (
     <div>
-      <p className="welcome">Welcome! Please select from our delicious selection and do not hesitate to let us know if we can answer any of your questions.</p>
+      <h1 className="welcome">Random photos around the world</h1>
       <ProductList products={props.products}/>
     </div>
   )

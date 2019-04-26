@@ -31,19 +31,19 @@ export const updateQuantities = cart => {
   }
 }
 
-const receiveData = data => {
+export const requestData = (posts) => {
   return {
     type: 'FETCH_DATA',
-    data
+    posts
   }
 }
 
-export function fetchData (data) {
+export function fetchData () {
   return (dispatch) => {
     return request
       .get('https://api.unsplash.com/photos/random/?client_id=9246c1c6029872e3c5ab6d3d689face627caa741e633c82c7d59ddaad33d70bc')
       .then(res => {
-        dispatch(receiveData(res.body))
+        dispatch(requestData(res.body))
       })
   }
 }
