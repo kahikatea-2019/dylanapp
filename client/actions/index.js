@@ -1,3 +1,4 @@
+import request from 'superagent'
 // ability to navigate between the listing and the cart
 
 export const navigate = target => {
@@ -27,5 +28,22 @@ export const updateQuantities = cart => {
   return {
     type: 'UPDATE_QUANTITIES',
     cart
+  }
+}
+
+const receiveData = data => {
+  return {
+    type: 'FETCH_DATA',
+    data
+  }
+}
+
+export function fetchData (data) {
+  return (dispatch) => {
+    return request
+      .get('https://api.unsplash.com/photos/random/?client_id=9246c1c6029872e3c5ab6d3d689face627caa741e633c82c7d59ddaad33d70bc')
+      .then(res => {
+        dispatch(receiveData(res.body))
+      })
   }
 }
